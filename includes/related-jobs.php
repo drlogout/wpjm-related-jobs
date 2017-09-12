@@ -65,15 +65,15 @@ function wpjm_related_jobs_display($options=array()) {
             $location=(isset($metas['_job_location'][0])!='')?$metas['_job_location'][0]:'';
             $content = strip_shortcodes(get_the_content());
 
-            $result .= '<li class="col_'.$columns.'">
-                <div class="title"><a href="'.get_the_permalink().'">'.get_the_title().'</a></div>
+            $result .= '<li class="col_'.$columns.'"><a href="'.get_the_permalink().'">
+                <div class="title">'.get_the_title().'</div>
                 <div class="comp">'.$company.'</div>
                 <div class="jt"><span>'.current( $types ).'</span></div>
                 <div class="loc"><span class="dashicons dashicons-location"></span>'.$location.'</div>
                 <hr />
                 <div class="cont">'.substr(strip_tags($content),0,$length);
                 if(strlen($content)>$length){$result .= '<div class="fade-out"></div>';}
-            $result .= '</div>
+            $result .= '</div></a>
             </li>';
             
             // rinse and repeat
